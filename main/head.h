@@ -2,7 +2,7 @@
 #ifndef MAIN_HEAD_H_
 #define MAIN_HEAD_H_
 #include <string.h>
-#include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
@@ -37,18 +37,26 @@ EventGroupHandle_t common_event_groups;
 #define WIFI_CONNECTED_BIT BIT0
 #define WIFI_FAIL_BIT      BIT1
 #define UDP_SEND_ACTIVE    BIT2
-#define UDP_DATE_ACTIVE    BIT2
+#define UDP_DATE_ACTIVE    BIT3
 
 /* wifi drive conf */
 #define ESP_WIFI_SSID      "test"
 #define ESP_WIFI_PASS      "test_2123123"
 #define MAX_STA_CONN       5
 void wifi_init_softap();
-
-/*       Wifi UDP Conf          */
-#define PORT 80
 #define MACADDR	{0x16,	0x34,	0x56,	0x78,	0x90,	0xab}
+
+/*       drive UDP Conf          */
+#define PORT 80
 esp_err_t udp_server_start(uint8_t prior,uint16_t mem);
+void server_send_q_date(char *p, size_t len);
+/*MPU */
+
+struct date_i2c{
+	float x; //pitch
+	float y; //row
+	float z; //yaw
+}Date_ini;
 
 
 #endif /* MAIN_HEAD_H_ */
