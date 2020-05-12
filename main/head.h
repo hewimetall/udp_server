@@ -50,7 +50,22 @@ void wifi_init_softap();
 #define PORT 80
 esp_err_t udp_server_start(uint8_t prior,uint16_t mem);
 void server_send_q_date(char *p, size_t len);
+
+
 /*MPU */
+
+#define I2C_MASTER_SCL_IO           13              /*!<  gpio number D7 for I2C master clock */
+#define I2C_MASTER_SDA_IO           12              /*!< gpio number D6 for I2C master data  */
+#define I2C_MASTER_NUM             			I2C_NUM_0  		        /*!< I2C port number for master dev */
+
+/*mpu i2c */
+esp_err_t mpu_get_gyro_angle();
+esp_err_t mpu_get_accel_angle(float *accAngleX,float *accAngleY);
+esp_err_t i2c_master_mpu6050_init(i2c_port_t i2c_num);
+/*mpu drive */
+esp_err_t mpu_init();
+esp_err_t mpu_start(uint8_t prior,uint16_t mem_us);
+esp_err_t mpu_test_conn();
 
 struct date_i2c{
 	float x; //pitch
