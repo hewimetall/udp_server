@@ -27,6 +27,7 @@
 #include "lwip/sockets.h"
 #include "lwip/sys.h"
 #include <lwip/netdb.h>
+#define LWIP_DEBUG   1
 
 /* General Group */
 EventGroupHandle_t common_event_groups;
@@ -47,7 +48,7 @@ void wifi_init_softap();
 /*       Wifi UDP Conf          */
 #define PORT 80
 #define MACADDR	{0x16,	0x34,	0x56,	0x78,	0x90,	0xab}
-void init_server(uint8_t prior,uint16_t mem_us);
+esp_err_t udp_server_start(uint8_t prior,uint16_t mem);
 
 
 #endif /* MAIN_HEAD_H_ */

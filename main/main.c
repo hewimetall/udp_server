@@ -10,6 +10,6 @@ void app_main()
     /* ESP_WIFI_MODE_AP */
     wifi_init_softap();
     /* ESP UDP SERV START */
-    init_server((uint8_t) 5,(uint16_t) 1024*2);
+    udp_server_start((uint8_t) 5,(uint16_t) 1024*2);
 
 }
