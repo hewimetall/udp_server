@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-//#define DEBUG_INFO 1
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
@@ -27,7 +26,6 @@
 #include "lwip/sockets.h"
 #include "lwip/sys.h"
 #include <lwip/netdb.h>
-#define LWIP_DEBUG   1
 
 /* General Group */
 EventGroupHandle_t common_event_groups;
@@ -40,9 +38,9 @@ EventGroupHandle_t common_event_groups;
 #define UDP_DATE_ACTIVE    BIT3
 
 /* wifi drive conf */
-#define ESP_WIFI_SSID      "test"
-#define ESP_WIFI_PASS      "test_2123123"
-#define MAX_STA_CONN       5
+#define ESP_WIFI_SSID      "ESP32_wifi"
+#define ESP_WIFI_PASS      "ESP32_wifi123123123"
+#define MAX_STA_CONN       3
 void wifi_init_softap();
 #define MACADDR	{0x16,	0x34,	0x56,	0x78,	0x90,	0xab}
 

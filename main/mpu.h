@@ -8,8 +8,8 @@
 #ifndef MAIN_MPU_H_
 #define MAIN_MPU_H_
 
-#define I2C_SCL_IO        				    2              	 /*!< gpio number for I2C master clock */
-#define I2C_SDA_IO      					14           	 /*!< gpio number for I2C master data  */
+#define I2C_SCL_IO        				    14               /*!< gpio number for I2C master clock */
+#define I2C_SDA_IO      					12           	 /*!< gpio number for I2C master data  */
 
 #define MPU6050_SENSOR_ADDR                 0x68             /*!< slave address for MPU6050 sensor */
 #define MPU6050_CMD_START                   0x41             /*!< Command to set measure mode */

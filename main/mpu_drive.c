@@ -92,7 +92,7 @@ static esp_err_t i2c_master_mpu6050_init(i2c_port_t i2c_num)
 
 static size_t json_serilizete(double *roll,double *pith,char *str){
 	size_t len=0;
-	len=sprintf (str,"{ \"name\": \"%-1s\", \"X\": %.1f, \"Y\": %.1f}\n", "acel",*roll,*pith);
+	len=sprintf (str,"{ \"name\": \"%-1s\", \"roll\": %.1f, \"pith\": %.1f}\n", "acel",*roll,*pith);
 	str[len]='\0';
 	return len;
 }
@@ -123,8 +123,8 @@ static void i2c_task(void *arg)
             Ay = (double)AccelY/AccelScaleFactor;
             Az = (double)AccelZ/AccelScaleFactor;
 
-            roll =  ((atan((Ay) / sqrt(pow((Ax), 2) + pow((Az), 2))) * 180 / M_PI));
-            pith =  ((atan(-1 * (Ax) / sqrt(pow((Ay), 2) + pow((Az), 2))) * 180 / M_PI));
+            roll =  ((atan2((Ay) , sqrt(pow((Ax), 2) + pow((Az), 2))) * 180 / M_PI));
+            pith =  ((atan2(-1 * (Ax) , sqrt(pow((Ay), 2) + pow((Az), 2))) * 180 / M_PI));
             len=json_serilizete(&roll,&pith,&str);
             server_send_q_date(&str,len);
 
