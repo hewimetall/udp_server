@@ -13,7 +13,6 @@ void app_main()
     wifi_init_softap();
     /* ESP UDP SERV START */
     udp_server_start((uint8_t) 5,(uint16_t) 1024*2);
-//    server_send_q_date(&t,sizeof( t)-1);
     mpu_start((uint8_t) 5,(uint16_t) 1024*2);
 
 }
