@@ -3,7 +3,8 @@
 void app_main()
 {
     ESP_ERROR_CHECK(nvs_flash_init());
-	mpu_init();
+//	mpu_init();
+//    xTaskCreate(echo_task, "uart_echo_task", 1024, NULL, 10, NULL);
 
     /* Create common var*/
     common_event_groups = xEventGroupCreate();
